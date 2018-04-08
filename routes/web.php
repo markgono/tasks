@@ -1,4 +1,6 @@
-<?php
+<?php 
+
+Route::get('/', 'PostsController@index');
 
 Route::get('/tasks', 'TasksController@index');
 
