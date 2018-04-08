@@ -28,12 +28,11 @@ class TasksController extends Controller
     }
 
     /**
-    * Returns a task
+    * Returns a task.
+    * Uses route model binding to automatically map our wildcard to a Model
     */
-    public function show($id)
-    {
-      $task = Task::find($id);
-  
+    public function show(Task $task)
+    {  
       return view('tasks.show', compact('task'));
     }
 }
