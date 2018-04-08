@@ -1,30 +1,7 @@
 <?php
 
-use App\Task;
+Route::get('/tasks', 'TasksController@index');
 
-/**
- * Returns all tasks
- */
-Route::get('/tasks', function () {
-    $tasks = Task::all();
-    
-    return view('tasks.index', compact('tasks'));
-});
+Route::get('/tasks/api', 'TasksController@api');
 
-/**
- * Returns our tasks as a nice JSON output. Perfect for APIs
- */
-Route::get('/tasks/api', function () {
-  $tasks = Task::all();
-
-  return $tasks;
-});
-
-/**
- * Returns a task
- */
-Route::get('tasks/{task}', function ($id) {
-  $task = Task::find($id);
-  
-  return view('tasks.show', compact('task'));
-});
+Route::get('tasks/{task}', 'TasksController@show');
