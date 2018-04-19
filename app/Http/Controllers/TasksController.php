@@ -43,4 +43,18 @@ class TasksController extends Controller
     {
       return view('tasks.create');
     }
+
+    /**
+     * Stores a task.
+     */
+    public function store()
+    {
+      $task = new Task;
+
+      $task->title = request('title');
+      $task->body = request('body');
+      $task->save();
+
+      return redirect('/');
+    }
 }

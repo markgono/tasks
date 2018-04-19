@@ -4,6 +4,8 @@ Route::get('/', 'TasksController@index');
 
 Route::get('/tasks', 'TasksController@index');
 
+Route::post('/tasks', 'TasksController@store');
+
 Route::get('/tasks/api', 'TasksController@api');
 
 Route::get('/tasks/create', 'TasksController@create');

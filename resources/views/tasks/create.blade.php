@@ -3,8 +3,10 @@
 @section('content')
   <div class="col-sm-8 blog-main">
     <h1>Create a task</h1>
-    <form action="">
-      <div class="form-group">
+    <form method="POST" action="/tasks">
+      {{-- @csrf - Adds a hidden session token to protect from CSRF attacks --}}
+      @csrf
+      <div class="form-group mt-3">
         <label for="title">Title</label>
         <input class="form-control" type="text" id="title" name="title">
       </div>
