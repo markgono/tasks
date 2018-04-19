@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-  <div class="col-sm-8 blog-main">
+  <div class="col-sm-8">
     <h1>Create a task</h1>
     <form method="POST" action="/tasks">
       {{-- @csrf - Adds a hidden session token to protect from CSRF attacks --}}
