@@ -1,12 +1,15 @@
 <?php 
 
-Route::get('/', 'PostsController@index');
+Route::get('/', 'TasksController@index');
 
 Route::get('/tasks', 'TasksController@index');
 
 Route::get('/tasks/api', 'TasksController@api');
 
-Route::get('tasks/{task}', 'TasksController@show');
+Route::get('/tasks/create', 'TasksController@create');
+
+Route::get('/tasks/{task}', 'TasksController@show');
+
 
 /*
   The following route is equivalent to:

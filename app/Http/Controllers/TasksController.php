@@ -35,4 +35,12 @@ class TasksController extends Controller
     {  
       return view('tasks.show', compact('task'));
     }
+
+    /**
+    * Creates a task.
+    */
+    public function create()
+    {
+      return view('tasks.create');
+    }
 }
