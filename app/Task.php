@@ -2,8 +2,9 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
-
+/*
+* Use our unguarded Model
+*/
 class Task extends Model
 {
   /**

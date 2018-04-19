@@ -49,11 +49,10 @@ class TasksController extends Controller
      */
     public function store()
     {
-      $task = new Task;
-
-      $task->title = request('title');
-      $task->body = request('body');
-      $task->save();
+      Task::create(request([
+        'title',
+        'body',
+      ]));
 
       return redirect('/');
     }
