@@ -4,9 +4,7 @@
   <h1>Tasks</h1>
   <ul>
     @foreach ($tasks as $task)
-      <li>
-        <a href="/tasks/{{ $task->id }}">{{ $task->title }}</a>
-      </li>
+      @include('tasks.task')
     @endforeach
   </ul>
   <div class="container mt-3">

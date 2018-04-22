@@ -1,0 +1,18 @@
+.task-item {
+  display: flex;
+  color: $body;
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+  .task-item__number {
+    min-width: 10%;
+  }
+
+  .task-item__content {}
+
+  .task-item__title {}
+
+  .task-item__body {}
