@@ -12,6 +12,7 @@ Route::get('/tasks/create', 'TasksController@create');
 
 Route::get('/tasks/{task}', 'TasksController@show');
 
+Route::post('/tasks/{task}/comments', 'CommentsController@store');
 
 /*
   The following route is equivalent to:
