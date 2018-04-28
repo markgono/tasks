@@ -9,6 +9,7 @@
 @import '~bootstrap/scss/bootstrap';
 
 // Components
+@import './modules/_header.scss';
 @import './modules/_task-item.scss';
 
 .navbar-laravel {
