@@ -1,6 +1,6 @@
 <?php 
 
-Route::get('/', 'TasksController@index');
+Route::get('/', 'TasksController@index')->name('home');
 
 Route::get('/tasks', 'TasksController@index');
 
@@ -29,3 +29,10 @@ Route::post('/tasks/{task}/comments', 'CommentsController@store');
 */
 Route::resource('photos', 'PhotoController');
 
+Route::get('/register', 'RegistrationsController@create');
+
+Route::post('/register', 'RegistrationsController@store');
+
+Route::get('/login', 'SessionsController@create');
+
+Route::get('/logout', 'SessionsController@destroy');
