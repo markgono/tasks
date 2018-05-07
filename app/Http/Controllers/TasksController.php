@@ -62,11 +62,12 @@ class TasksController extends Controller
         'body' => 'required',
       ]);
 
-      Task::create([
-        'title' => request('title'),
-        'body'  => request('body'),
-        'user_id' => auth()->id(),
-      ]);
+      auth()->user()->publish(
+        new Task(request([
+          'title',
+          'body',
+        ]))
+      );
 
       return redirect('/');
     }
