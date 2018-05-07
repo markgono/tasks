@@ -8,3 +8,11 @@
   width: 20px;
   height: 20px;
 }
+
+.header__link {
+  color: #00A3C3;
+
+  &:hover {
+    color: #FFFFFF;
+  }
+}
