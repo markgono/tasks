@@ -8,6 +8,14 @@ use App\Task;
 class TasksController extends Controller
 {
     /**
+     * All routes except index and show require you to be signed in.
+     */
+    public function __construct()
+    {
+      $this->middleware('auth')->except(['index', 'show']);
+    }
+
+    /**
     * Returns all tasks
     */
     public function index() 
