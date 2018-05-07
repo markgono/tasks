@@ -13,6 +13,12 @@
 
   .task-item__content {}
 
-  .task-item__title {}
+  .task-item__title {
+    font-weight: 600;
+  }
 
-  .task-item__body {}
+  .task-item__body {
+    font-size: 1.5rem;
+  }
+
+  .task-item__author {}
