@@ -26,7 +26,9 @@ class SessionsController extends Controller
     }
 
     // Authentication failed
-    return back();
+    return back()->withErrors([
+      'message' => 'Please check your credentials and try again',
+    ]);
   }
 
   public function destroy()
