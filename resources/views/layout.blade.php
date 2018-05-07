@@ -11,6 +11,7 @@
   <main class="container mt-5" id="content" role="main">
     <div class="row">
       @yield('content')
+      @include('components.sidebar')
     </div>
   </main>
 

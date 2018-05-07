@@ -2,6 +2,8 @@
 
 namespace App;
 
+use Carbon\Carbon;
+
 /*
 * Use our unguarded Model
 */
@@ -16,6 +18,19 @@ class Task extends Model
   public function scopeIncomplete($query)
   {
     return $query->where('completed', 0);
+  }
+
+  public function scopeFilter($query, $filter)
+  {
+    if (isset($filter['month']) && $month = $filter['month']) {
+      return $query->whereMonth('created_at', Carbon::parse($month)->month);
+    }
+
+    if (isset($filter['year']) && $year = $filter['year']) {
+      return $query->whereYear('created_at', Carbon::parse($year)->year);
+    }
+
+    return $query;
   }
 
   public function user()

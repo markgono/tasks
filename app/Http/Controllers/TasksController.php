@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Task;
+use DB;
 
 class TasksController extends Controller
 {
@@ -20,9 +21,17 @@ class TasksController extends Controller
     */
     public function index() 
     {
-      $tasks = Task::latest()->get();
+      $tasks = Task::latest()
+        ->filter(request(['month', 'year']))
+        ->get();
+
+      $archive = Task::select(DB::raw('YEAR(created_at) as year, MONTHNAME(created_at) as month, COUNT(*) as count'))
+        ->groupBy('year', 'month')
+        ->orderByRaw('MIN(created_at) desc')
+        ->get()
+        ->toArray();
     
-      return view('tasks.index', compact('tasks'));
+      return view('tasks.index', compact('tasks', 'archive'));
     }
 
     /**
