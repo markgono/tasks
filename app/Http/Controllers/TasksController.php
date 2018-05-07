@@ -62,10 +62,11 @@ class TasksController extends Controller
         'body' => 'required',
       ]);
 
-      Task::create(request([
-        'title',
-        'body',
-      ]));
+      Task::create([
+        'title' => request('title'),
+        'body'  => request('body'),
+        'user_id' => auth()->id(),
+      ]);
 
       return redirect('/');
     }
