@@ -4,7 +4,8 @@
   </a>
 
   @if(Auth::check())
-    <a href="" class="nav-link ml-auto header__link">{{ Auth::user()['name'] }}</a>
+    <a href="\" class="nav-link ml-auto header__link">{{ Auth::user()['name'] }}</a>
+    <a href="\logout" class="nav-link header__link">Logout</a>
   @else
     <a href="\login" class="nav-link ml-auto header__link">Login</a>
   @endif
