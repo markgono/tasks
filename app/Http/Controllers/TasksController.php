@@ -23,10 +23,8 @@ class TasksController extends Controller
       $tasks = Task::latest()
         ->filter(request(['month', 'year']))
         ->get();
-
-      $archive = Task::archive();
     
-      return view('tasks.index', compact('tasks', 'archive'));
+      return view('tasks.index', compact('tasks'));
     }
 
     /**
