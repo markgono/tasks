@@ -3,6 +3,7 @@
 namespace App;
 
 use Carbon\Carbon;
+use DB;
 
 /*
 * Use our unguarded Model
@@ -46,5 +47,14 @@ class Task extends Model
   public function addComment($body)
   {
     $this->comments()->create(compact('body'));
+  }
+
+  public static function archive()
+  {
+    return static::select(DB::raw('YEAR(created_at) as year, MONTHNAME(created_at) as month, COUNT(*) as count'))
+      ->groupBy('year', 'month')
+      ->orderByRaw('MIN(created_at) desc')
+      ->get()
+      ->toArray();
   }
 }
