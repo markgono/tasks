@@ -8,14 +8,15 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 class ExampleTest extends TestCase
 {
     /**
-     * A basic test example.
+     * Tests for homepage view
      *
      * @return void
      */
-    public function testBasicTest()
+    public function testHomepage()
     {
-        $response = $this->get('/');
+      $homepage = $this->get('/');
 
-        $response->assertStatus(200);
+      $homepage->assertSee('Tasks');
+      $homepage->assertSee('Login');
     }
 }
