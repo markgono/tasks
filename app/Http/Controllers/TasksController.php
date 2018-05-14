@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
 use App\Task;
+use App\Repositories\Tasks;
+use Illuminate\Http\Request;
 
 class TasksController extends Controller
 {
@@ -16,13 +17,12 @@ class TasksController extends Controller
     }
 
     /**
-    * Returns all tasks
+    * Returns all tasks.
+    * Uses automatic dependency injection
     */
-    public function index() 
+    public function index(Tasks $tasks) 
     {
-      $tasks = Task::latest()
-        ->filter(request(['month', 'year']))
-        ->get();
+      $tasks = $tasks->all();
     
       return view('tasks.index', compact('tasks'));
     }
