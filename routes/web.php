@@ -1,17 +1,5 @@
 <?php
 
-use App\Billing\Stripe;
-
-/* We could make this a singleton with App::singleton
-*  No matter how many times we resolved, we'd get the same instance.
-*/
-App::bind('App\Billing\Stripe', function () {
-  return new Stripe(config('services.stripe.secret'));
-});
-
-// Could be: resolve('App\Billing\Stripe');
-$stripe = App::make('App\Billing\Stripe');
-
 Route::get('/', 'TasksController@index')->name('home');
 
 Route::get('/tasks', 'TasksController@index');
