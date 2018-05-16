@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\RegistrationsRequest;
 use Illuminate\Http\Request;
 use App\Mail\Welcome;
 use App\User;
@@ -14,14 +15,13 @@ class RegistrationsController extends Controller
     return view('registrations.create');
   }
 
-  public function store()
+  /* 
+  * Type-hinting the request means we will run that
+  * Request classes validation and authorize methods
+  * A failure will redirect back automatically.
+  */
+  public function store(RegistrationsRequest $request)
   {
-    $this->validate(request(), [
-      'name' => 'required',
-      'email' => 'required|email',
-      'password' => 'required|confirmed',
-    ]);
-
     $user = User::create([
       'name' => request('name'),
       'email' => request('email'),
