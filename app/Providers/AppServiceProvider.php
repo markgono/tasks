@@ -5,6 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use App\Billing\Stripe;
 use App\Task;
+use App\Tag;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -16,7 +17,10 @@ class AppServiceProvider extends ServiceProvider
     public function boot()
     {
         view()->composer('components.sidebar', function($view) {
-          $view->with('archive', Task::archive());
+          $archive = Task::archive();
+          $tags = Tag::has('tasks')->pluck('name');
+
+          $view->with(compact('archive', 'tags'));
         });
     }
 
