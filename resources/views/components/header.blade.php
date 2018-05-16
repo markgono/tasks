@@ -8,5 +8,7 @@
     <a href="\logout" class="nav-link header__link">Logout</a>
   @else
     <a href="\login" class="nav-link ml-auto header__link">Login</a>
+    \
+    <a href="\register" class="nav-link header__link">Register</a>
   @endif
 </header>
