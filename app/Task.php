@@ -34,14 +34,22 @@ class Task extends Model
     return $query;
   }
 
+  // Many to One
   public function user()
   {
     return $this->belongsTo(User::class);
   }
 
+  // One to Many
   public function comments()
   {
     return $this->hasMany(Comment::class);
+  }
+
+  // Many to Many
+  public function tags()
+  {
+    return $this->belongsToMany(Tag::class);
   }
 
   public function addComment($body)
