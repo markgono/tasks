@@ -2,11 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\RegistrationsRequest;
-use Illuminate\Http\Request;
-use App\Mail\Welcome;
-use App\User;
-use Mail;
+use App\Http\Requests\RegistrationsForm;
 
 class RegistrationsController extends Controller
 {
@@ -20,17 +16,9 @@ class RegistrationsController extends Controller
   * Request classes validation and authorize methods
   * A failure will redirect back automatically.
   */
-  public function store(RegistrationsRequest $request)
+  public function store(RegistrationsForm $form)
   {
-    $user = User::create([
-      'name' => request('name'),
-      'email' => request('email'),
-      'password' => bcrypt(request('password')),
-    ]);
-
-    auth()->login($user);
-
-    Mail::to($user)->send(new Welcome($user));
+    $form->persist();
 
     return redirect()->home();
   }
