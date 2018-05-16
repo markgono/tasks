@@ -10,4 +10,10 @@ class Tag extends Model
     {
       return $this->belongsToMany(Task::class);
     }
+
+    // Overrides the default route matching by primary key
+    public function getRouteKeyName()
+    {
+      return 'name';
+    }
 }

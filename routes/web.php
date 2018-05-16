@@ -14,6 +14,8 @@ Route::get('/tasks/{task}', 'TasksController@show');
 
 Route::post('/tasks/{task}/comments', 'CommentsController@store');
 
+Route::get('/tasks/tags/{tag}', 'TagsController@index');
+
 /*
   The following route is equivalent to:
 
