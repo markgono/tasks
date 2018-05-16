@@ -4,6 +4,13 @@
   <div class="col-sm-8">
     <h1>{{ $task->title }}</h1>
     <p>{{ $task->body }}</p>
+    @if (count($task->tags))
+      <div>
+        @foreach ($task->tags as $tag)
+          <a class="badge badge-info badge-pill" href="/tasks/tags/{{ $tag->name }}">{{ $tag->name }}</a>
+        @endforeach
+      </div>
+    @endif
     @if (count($task->comments))
       <hr>
       <div class="comments">
