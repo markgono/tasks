@@ -71,6 +71,8 @@ class TasksController extends Controller
         ]))
       );
 
+      session()->flash('message', 'Your task ('.request('title').') has been created!');
+
       return redirect('/');
     }
 }
