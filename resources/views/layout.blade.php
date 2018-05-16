@@ -8,11 +8,7 @@
 </head>
 <body>
   @include('components.header')
-  @if (session('message'))
-    <div class="alert alert-success" role="alert">
-      {{ session('message') }}
-    </div>
-  @endif
+  @include('components.message')
   <main class="container mt-5" id="content" role="main">
     <div class="row">
       @yield('content')
