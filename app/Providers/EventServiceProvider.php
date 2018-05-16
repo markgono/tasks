@@ -13,8 +13,12 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'App\Events\Event' => [
-            'App\Listeners\EventListener',
+        /*
+        * Defining events here then running: artisan event:generate will create Events and Listeners 
+        * automatically bound to the events they're supposed to be listening to. Neat.
+        */
+        'App\Events\TaskCreated' => [
+            'App\Listeners\NotifySubscibers',
         ],
     ];
 
