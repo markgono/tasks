@@ -19,6 +19,7 @@ class EventServiceProvider extends ServiceProvider
         */
         'App\Events\TaskCreated' => [
             'App\Listeners\NotifySubscibers',
+            'App\Listeners\CheckForSpam',
         ],
     ];
 

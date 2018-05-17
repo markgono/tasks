@@ -6,7 +6,7 @@ use App\Events\TaskCreated;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class NotifySubscibers
+class CheckForSpam
 {
     /**
      * Create the event listener.
@@ -26,7 +26,6 @@ class NotifySubscibers
      */
     public function handle(TaskCreated $event)
     {
-        // to trigger, tinker: event(new App\Events\TaskCreated(Task::first()));
-        var_dump('Task [' . $event->task->title . '] was created!');
+        var_dump('[' . $event->task->name . '] was created. Checked for spam.');
     }
 }
