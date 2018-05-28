@@ -1,5 +1,7 @@
 <?php
 
+/* Tasks */
+
 Route::get('/', 'TasksController@index')->name('home');
 
 Route::get('/tasks', 'TasksController@index');
@@ -12,13 +14,21 @@ Route::get('/tasks/create', 'TasksController@create');
 
 Route::get('/tasks/{task}', 'TasksController@show');
 
+/* Comments */
+
 Route::post('/tasks/{task}/comments', 'CommentsController@store');
 
+/* Tags */
+
 Route::get('/tasks/tags/{tag}', 'TagsController@index');
+
+/* Registrations */
 
 Route::get('/register', 'RegistrationsController@create');
 
 Route::post('/register', 'RegistrationsController@store');
+
+/* Sessions */
 
 Route::get('/login', 'SessionsController@create')->name('login');
 
