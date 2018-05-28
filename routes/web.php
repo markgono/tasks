@@ -16,21 +16,6 @@ Route::post('/tasks/{task}/comments', 'CommentsController@store');
 
 Route::get('/tasks/tags/{tag}', 'TagsController@index');
 
-/*
-  The following route is equivalent to:
-
-  Route::get('photos', 'PhotoController@index')
-  Route::get('photos/create', 'PhotoController@create')
-  Route::post('photos', 'PhotoController@store')
-  Route::get('photos/{photo}', 'PhotoController@show')
-  Route::get('photos/{photo}/edit', 'PhotoController@edit')
-  Route::put('photos/{photo}', 'PhotoController@update') *
-  Route::delete('photos/{photo}', 'PhotoController@destroy')
-
-  * can also be Route::patch
-*/
-Route::resource('photos', 'PhotoController');
-
 Route::get('/register', 'RegistrationsController@create');
 
 Route::post('/register', 'RegistrationsController@store');
